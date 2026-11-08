@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../Model/Setting - HR Client - WS Server/Setting - HR Client - WS Server/Setting - Project Client - WS Server.csproj" />
+  <Project Path="DataLayer/DataLayer.csproj" Id="d36da173-6ff8-44bb-8344-d361ff53536c" />
+  <Project Path="ErrorLoggingService/ErrorLoggingService.csproj" />
+</Solution>

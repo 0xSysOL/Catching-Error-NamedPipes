@@ -1,0 +1,48 @@
+## Visual Studio User-Specific Files
+*.rsuser
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+## Visual Studio Test Results
+*.trx
+*.coverage
+*.coveragexml
+
+## Visual Studio Build Output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+[Tt]mp/
+_ReSharper*/
+*.csproj.user
+*.vbproj.user
+*.vcxproj.user
+
+## Visual Studio Hidden Folder (Contains IDE specific settings)
+.vs/
+
+## NuGet Packages (Will be restored automatically)
+**/packages/*
+!**/packages/build/
+*.nupkg
+*.snupkg
+
+## Entity Framework
+*.sqlite
+
+## Publish folder
+[Pp]ublish/
+[Pp]ublished/
+
+## Environment / OS specific files
+.DS_Store
+Thumbs.db
+
+
+## VS Code Specific Settings (Laptop Security)
+.vscode/
+

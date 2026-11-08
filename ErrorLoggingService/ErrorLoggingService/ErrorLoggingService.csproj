@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ErrorLoggingService-1d3eb941-0bbd-4da6-99ce-dc2393cf6b7c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Setting - HR Client - WS Server\Setting - HR Client - WS Server\Setting - HR Client - WS Server\Setting - Project Client - WS Server.csproj" />
+    <ProjectReference Include="..\..\Model\Setting - HR Client - WS Server\Setting - HR Client - WS Server\Setting - Project Client - WS Server.csproj" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+  </ItemGroup>
+</Project>
