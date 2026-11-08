@@ -14,6 +14,4 @@ A lightweight, high-throughput Inter-Process Communication (IPC) error logging s
 ## Solution Architecture
 * **Data_Layer.Errore_Catching (Client):** Implements `PipeOptions.WriteThrough` for unbuffered byte transmission, preventing system caching delays.
 * **ErrorLoggingService (Server):** Runs as a `BackgroundService` that processes messages using immediate `Dequeue()` extraction to maintain stable memory footprints under load.
-## Solution Architecture
-* **Data_Layer.Errore_Catching (Client):** Implements `PipeOptions.WriteThrough` for unbuffered byte transmission, preventing system caching delays.
-* **ErrorLoggingService (Server):** Runs as a `BackgroundService` that processes messages using immediate `Dequeue()` extraction to maintain stable memory footprints under load.
+
