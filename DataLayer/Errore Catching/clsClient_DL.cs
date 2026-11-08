@@ -46,7 +46,6 @@ namespace Data_Layer.Errore_Catching
             }
             catch
             {
-                await QMError.Enqueue(StrError);
                 return false;
             }
 
