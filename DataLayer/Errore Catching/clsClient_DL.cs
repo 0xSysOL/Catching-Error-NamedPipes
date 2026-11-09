@@ -1,5 +1,4 @@
 ﻿using Models;
-using Setting___HR_Client___WS_Server;
 using System.IO.Pipes;
 using System.Text;
 using System.Text.Json;
@@ -16,7 +15,7 @@ namespace Data_Layer.Errore_Catching
         private static SemaphoreSlim slim = new SemaphoreSlim(1, 1);
         private static TaskProcessor<MErrorInformation> QMError = new TaskProcessor<MErrorInformation>();
 
-        private static bool ConnectToServer()
+        private static async Task<bool> ConnectToServer()
         {
             if (PipeClientStream == null) return false;
 
@@ -24,7 +23,7 @@ namespace Data_Layer.Errore_Catching
             try
             {
                 if (!PipeClientStream.IsConnected)
-                    PipeClientStream.Connect(2000);
+                    await PipeClientStream.ConnectAsync(2000);
 
                 return true;
             }
@@ -35,7 +34,7 @@ namespace Data_Layer.Errore_Catching
             }
 
         }
-        public static async Task<bool> WriteToPipeStringAsync(MErrorInformation? StrError)
+        private static async Task<bool> WriteToPipeStringAsync(MErrorInformation? StrError)
         {
             if (StrError == null) return false;
 
@@ -51,7 +50,7 @@ namespace Data_Layer.Errore_Catching
 
             return true;
         }
-        public static async Task WriteWithQueue(MErrorInformation StrError)
+        private static async Task WriteWithQueue(MErrorInformation StrError)
         {
             if (!await WriteToPipeStringAsync(StrError))
             {
@@ -80,7 +79,7 @@ namespace Data_Layer.Errore_Catching
 
             try
             {
-                if (!ConnectToServer())
+                if (!await ConnectToServer())
                     await QMError.Enqueue(StrError);
                 else
                     await WriteWithQueue(StrError);
@@ -123,7 +122,8 @@ namespace Data_Layer.Errore_Catching
             int len = outBuffer.Length;
             if (len > UInt16.MaxValue)
             {
-                len = (int)UInt16.MaxValue;
+                //len = (int)UInt16.MaxValue;
+                throw new Exception("Length is greater than Int16 value");
             }
             ioStream.WriteByte((byte)(len / 256));
             ioStream.WriteByte((byte)(len & 255));
